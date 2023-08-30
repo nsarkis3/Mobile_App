@@ -1,4 +1,4 @@
-# CSE382_sarkisn
+# CSE382_zmudam
 
 
 
@@ -15,14 +15,14 @@ Already a pro? Just edit this README.md and make it your own. Want to make it ea
 
 ```
 cd existing_repo
-git remote add origin https://gitlab.csi.miamioh.edu/sarkisn/cse382_sarkisn.git
+git remote add origin https://gitlab.csi.miamioh.edu/zmudam/cse382_zmudam.git
 git branch -M main
 git push -uf origin main
 ```
 
 ## Integrate with your tools
 
-- [ ] [Set up project integrations](https://gitlab.csi.miamioh.edu/sarkisn/cse382_sarkisn/-/settings/integrations)
+- [ ] [Set up project integrations](https://gitlab.csi.miamioh.edu/zmudam/cse382_zmudam/-/settings/integrations)
 
 ## Collaborate with your team
 
