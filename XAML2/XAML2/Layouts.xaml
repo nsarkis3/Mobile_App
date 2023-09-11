@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XAML2.Layouts">
+    <VerticalStackLayout>
+        <HorizontalStackLayout>
+            <Button Text="A" WidthRequest="45" HeightRequest="45"/>
+            <Button Text="B" WidthRequest="45" HeightRequest="45"/>
+            <Button Text="C" WidthRequest="45" HeightRequest="45"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Button Text="alpha"/>
+            <Button Text="beta"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Button Text="uno"/>
+        <VerticalStackLayout>
+            <Button Text="dos"/>
+            <Button Text="tres"/>
+        </VerticalStackLayout>
+            <Button Text="cuatro"/>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

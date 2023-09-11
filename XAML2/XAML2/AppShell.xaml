@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="XAML2.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:XAML2">
+    <TabBar>
+        <Tab Title="Basics">
+            <ShellContent ContentTemplate="{DataTemplate local:BasicControls}" />
+        </Tab>
+        <Tab Title="Action">
+            <ShellContent ContentTemplate="{DataTemplate local:InitiateAction}" />
+        </Tab>
+        <Tab Title="Layouts">
+            <ShellContent ContentTemplate="{DataTemplate local:Layouts}" />
+        </Tab>
+    </TabBar>
+</Shell>

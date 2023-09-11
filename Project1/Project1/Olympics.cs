@@ -25,11 +25,164 @@ public class Olympics {
 		return participants;
 	}
 	public static void Main(string[] args) {
-		ReadParticipants("olympics.tsv");
+		List<Participant> p = ReadParticipants("olympics.tsv");
 
 		while (true) {
 			Console.Write(">> ");
 			string? userInput = Console.ReadLine();
+
+			if (userInput == "exit") break;
+			else if (userInput == "hosts")
+			{
+				List<string> hosts = Hosts(p);
+				foreach (string host in hosts) Console.WriteLine(host);
+			}
+			else if (userInput.Contains("count"))
+			{
+				string[] inputArr = userInput.Split(' ');
+				if (inputArr.Length <= 2)
+				{
+					Console.WriteLine("Invalid query");
+				}
+				else
+				{
+					try
+					{
+						int year = int.Parse(inputArr[1]);
+						String country = userInput.Substring(7 + inputArr[1].Length, userInput.Length - (7 + inputArr[1].Length));
+						Console.WriteLine(Count(p, year, country));
+					}
+					catch (Exception e)
+					{
+						Console.WriteLine("Invalid query");
+					}
+				}
+			}
+			else if (userInput.Contains("golds"))
+			{
+				string[] inputArr = userInput.Split(' ');
+				if (inputArr.Length <= 2)
+				{
+					Console.WriteLine("Invalid query");
+				}
+				else
+				{
+					try
+					{
+						int year = int.Parse(inputArr[1]);
+						String country = userInput.Substring(7 + inputArr[1].Length, userInput.Length - (7 + inputArr[1].Length));
+						List<string> gold = Golds(p, year, country);
+						foreach (string goldItem in gold) Console.WriteLine(goldItem);
+					}
+					catch (Exception e)
+					{
+						Console.WriteLine("Invalid query");
+					}
+				}
+			}
+			else if (userInput.Contains("podium"))
+			{
+				string[] inputArr = userInput.Split(' ');
+				if (inputArr.Length <= 3)
+				{
+                    try
+                    {
+						List<Participant> podium = new List<Participant>(); 
+                        int year = int.Parse(inputArr[1]);
+						if (userInput.Contains("Summer")) podium = Podium(p, year, Participant.SeasonType.Summer, "");
+						else if (userInput.Contains("Winter")) podium = Podium(p, year, Participant.SeasonType.Winter, "");
+						else
+						{
+							Console.WriteLine("Invalid query");
+							continue;
+						}
+						foreach (Participant winner in podium) 
+						{
+							Console.Write(winner.ToString());
+						}
+                        //string Event = userInput.Substring(7 + inputArr[1].Length, userInput.Length - (7 + inputArr[1].Length));
+                    }
+                    catch (Exception E)
+                    {
+                        Console.WriteLine("Invalid query");
+                    }
+				}
+				else
+				{
+                    Console.WriteLine("Invalid query");
+                }
+			}
+			else Console.WriteLine("Invalid query");
 		}
 	}
+
+	public static List<string> Hosts(List<Participant> p)
+	{
+		List<string> hosts = new List<string>();
+		foreach (Participant participant in p)
+		{
+			if (!hosts.Contains(participant.Location)) hosts.Add(participant.Location);
+		}
+		hosts.Sort();
+		return hosts;
+	}
+
+	public static int Count(List<Participant> p, int year, string country)
+	{
+		int count = 0;
+		foreach (Participant participant in p)
+		{
+			if (participant.Country == country &&
+				participant.Medal != Participant.MedalType.None &&
+				participant.Year == year)
+			{
+				count++;
+			}
+		}
+
+		return count;
+	}
+	public static List<string> Golds(List<Participant> p, int year, string country)
+	{
+		List<string> goldWinners = new List<string>();
+		foreach (Participant participant in p)
+		{
+			if(participant.Country == country &&
+				participant.Year == year &&
+				participant.Medal == Participant.MedalType.Gold &&
+				!goldWinners.Contains(participant.Name))
+			{
+				goldWinners.Add(participant.Name);
+			}
+		}
+		if (goldWinners.Count == 0) goldWinners.Add("None");
+
+		return goldWinners;
+	}
+
+	public static List<Participant> Podium(List<Participant> p, int year, Participant.SeasonType season, string Event)
+	{
+		List<Participant> podium = new List<Participant>() { p[0], p[1], p[2] };
+		foreach (Participant participant in p)
+		{
+			if (participant.Year == year && 
+				participant.Season == Participant.SeasonType.Summer && 
+				participant.Event == Event)
+			{
+				if (participant.Medal == Participant.MedalType.Gold)
+				{
+					podium[0] = participant;
+				}
+				else if (participant.Medal == Participant.MedalType.Silver)
+				{
+					podium[1] = participant;
+				}
+                else if (participant.Medal == Participant.MedalType.Bronze)
+                {
+                    podium[2] = participant;
+                }
+            }
+		}
+        return podium;
+    }
 }
