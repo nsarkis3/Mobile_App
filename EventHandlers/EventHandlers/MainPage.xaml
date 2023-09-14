@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EventHandlers.MainPage">
+
+    <VerticalStackLayout>
+        <HorizontalStackLayout>
+            <Entry x:Name="theEntry" Text="some text" TextChanged="TheEntry_TextChanged"/>
+            <Label x:Name="entryLabel" Text="starting label"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Button x:Name="theButton" Text="Click me" Clicked="TheButton_Clicked"/>
+            <Label x:Name="buttonLabel" Text="starting label"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <CheckBox x:Name="theCheckBox" IsChecked="False" CheckedChanged="CheckBox_CheckedChanged"/>
+            <Label x:Name="checkBoxLabel" Text="starting label"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Switch x:Name="theSwitch" IsToggled="False" Toggled="theSwitch_Toggled"/>
+            <Label x:Name="switchLabel" Text="starting label"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Slider x:Name="theSlider" Minimum ="0" Maximum="1.0" Value="0.5" WidthRequest="100" ValueChanged="theSlider_ValueChanged"/>
+            <Label x:Name="sliderLabel" Text="0.5"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Stepper x:Name="theStepper" Increment="0.1" WidthRequest="100" ValueChanged="theStepper_ValueChanged"/>
+            <Label x:Name="stepperLabel" Text="starting label"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Picker x:Name="thePicker" SelectedIndexChanged="thePicker_SelectedIndexChanged">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Red</x:String>
+                        <x:String>Green</x:String>
+                        <x:String>Blue</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            <Label x:Name="pickerLabel" Text="starting label"/>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+
+</ContentPage>

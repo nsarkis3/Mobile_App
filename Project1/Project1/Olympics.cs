@@ -83,24 +83,28 @@ public class Olympics {
 			else if (userInput.Contains("podium"))
 			{
 				string[] inputArr = userInput.Split(' ');
-				if (inputArr.Length <= 3)
+				if (inputArr.Length >= 3)
 				{
                     try
                     {
-						List<Participant> podium = new List<Participant>(); 
+						List<string> podium = new List<string>(); 
                         int year = int.Parse(inputArr[1]);
-						if (userInput.Contains("Summer")) podium = Podium(p, year, Participant.SeasonType.Summer, "");
-						else if (userInput.Contains("Winter")) podium = Podium(p, year, Participant.SeasonType.Winter, "");
+
+						Participant.SeasonType season = Participant.SeasonType.Winter;
+						if (userInput.Contains("Summer")) season = Participant.SeasonType.Summer;
+						else if (userInput.Contains("Winter")) season = Participant.SeasonType.Winter;
 						else
 						{
 							Console.WriteLine("Invalid query");
 							continue;
 						}
-						foreach (Participant winner in podium) 
+                        string sport = userInput.Substring(15 + inputArr[1].Length, userInput.Length - (15 + inputArr[1].Length));
+						podium = Podium(p, year, season, sport);
+                        foreach (string winner in podium)
 						{
-							Console.Write(winner.ToString());
+							Console.WriteLine(winner);
+							Console.WriteLine();
 						}
-                        //string Event = userInput.Substring(7 + inputArr[1].Length, userInput.Length - (7 + inputArr[1].Length));
                     }
                     catch (Exception E)
                     {
@@ -160,29 +164,26 @@ public class Olympics {
 		return goldWinners;
 	}
 
-	public static List<Participant> Podium(List<Participant> p, int year, Participant.SeasonType season, string Event)
+	public static List<string> Podium(List<Participant> p, int year, Participant.SeasonType season, string Event)
 	{
-		List<Participant> podium = new List<Participant>() { p[0], p[1], p[2] };
-		foreach (Participant participant in p)
+		List<string> podium = new List<string>() { "", "", "" };
+		string gold = "Gold \n";
+		string silver = "Silver \n";
+		string bronze = "Bronze \n";
+        foreach (Participant participant in p)
 		{
 			if (participant.Year == year && 
 				participant.Season == Participant.SeasonType.Summer && 
 				participant.Event == Event)
 			{
-				if (participant.Medal == Participant.MedalType.Gold)
-				{
-					podium[0] = participant;
-				}
-				else if (participant.Medal == Participant.MedalType.Silver)
-				{
-					podium[1] = participant;
-				}
-                else if (participant.Medal == Participant.MedalType.Bronze)
-                {
-                    podium[2] = participant;
-                }
+				if (participant.Medal == Participant.MedalType.Gold) gold += participant.Name + "\n";
+				else if (participant.Medal == Participant.MedalType.Silver) silver += participant.Name + "\n";
+				else if (participant.Medal == Participant.MedalType.Bronze) bronze += participant.Name + "\n";
             }
 		}
+		podium[0] = gold;
+		podium[1] = silver;
+		podium[2] = bronze;
         return podium;
     }
 }
