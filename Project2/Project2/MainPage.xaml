@@ -2,40 +2,88 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Project2.MainPage">
+    <VerticalStackLayout>
+        <HorizontalStackLayout>
+            <Label x:Name="Display" Text="0" FontSize="32" TextColor="Black" HorizontalTextAlignment="End"/>
+        </HorizontalStackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button x:Name="Zero" Text="0" TextColor="White" Grid.Row="0" Grid.Column="0" BackgroundColor="Blue" FontSize="16" Clicked="Zero_Clicked"/>
+            <Button x:Name="One" Text="1" TextColor="White" Grid.Row="0" Grid.Column="1" BackgroundColor="Blue" FontSize="16" Clicked="One_Clicked"/>
+            <Button x:Name="Two" Text="2" TextColor="White" Grid.Row="0" Grid.Column="2" BackgroundColor="Blue" FontSize="16" Clicked="Two_Clicked"/>
+            <Button x:Name="Three" Text="3" TextColor="White" Grid.Row="0" Grid.Column="3" BackgroundColor="Blue" FontSize="16" Clicked="Three_Clicked"/>
 
-    <ScrollView>
-        <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
+            <Button x:Name="Four" Text="4" TextColor="White" Grid.Row="1" Grid.Column="0" BackgroundColor="Blue" FontSize="16" Clicked="Four_Clicked"/>
+            <Button x:Name="Five" Text="5" TextColor="White" Grid.Row="1" Grid.Column="1" BackgroundColor="Blue" FontSize="16" Clicked="Five_Clicked"/>
+            <Button x:Name="Six" Text="6" TextColor="White" Grid.Row="1" Grid.Column="2" BackgroundColor="Blue" FontSize="16" Clicked="Six_Clicked"/>
+            <Button x:Name="Seven" Text="7" TextColor="White" Grid.Row="1" Grid.Column="3" BackgroundColor="Blue" FontSize="16" Clicked="Seven_Clicked"/>
 
-            <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
+            <Button x:Name="Eight" Text="8" TextColor="White" Grid.Row="2" Grid.Column="0" BackgroundColor="Blue" FontSize="16" Clicked="Eight_Clicked"/>
+            <Button x:Name="Nine" Text="9" TextColor="White" Grid.Row="2" Grid.Column="1" BackgroundColor="Blue" FontSize="16" Clicked="Nine_Clicked"/>
+            <Button x:Name="A" Text="A" TextColor="Black" Grid.Row="2" Grid.Column="2" BackgroundColor="LightGray" FontSize="16" Clicked="A_Clicked" IsEnabled="False"/>
+            <Button x:Name="B" Text="B" TextColor="Black" Grid.Row="2" Grid.Column="3" BackgroundColor="LightGray" FontSize="16" Clicked="B_Clicked" IsEnabled="False"/>
 
-            <Label
-                Text="Hello, World!"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
+            <Button x:Name="C" Text="C" TextColor="Black" Grid.Row="3" Grid.Column="0" BackgroundColor="LightGray" FontSize="16" Clicked="C_Clicked" IsEnabled="False"/>
+            <Button x:Name="D" Text="D" TextColor="Black" Grid.Row="3" Grid.Column="1" BackgroundColor="LightGray" FontSize="16" Clicked="D_Clicked" IsEnabled="False"/>
+            <Button x:Name="E" Text="E" TextColor="Black" Grid.Row="3" Grid.Column="2" BackgroundColor="LightGray" FontSize="16" Clicked="E_Clicked" IsEnabled="False"/>
+            <Button x:Name="F" Text="F" TextColor="Black" Grid.Row="3" Grid.Column="3" BackgroundColor="LightGray" FontSize="16" Clicked="F_Clicked" IsEnabled="False"/>
 
-            <Label
-                Text="Welcome to .NET Multi-platform App UI"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                FontSize="18"
-                HorizontalOptions="Center" />
+            <Button x:Name="Delete" Text="Delete" TextColor="White" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4" BackgroundColor="Blue" FontSize="16" Clicked="Delete_Clicked"/>
 
-            <Button
-                x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Center" />
+            <Button x:Name="Clear" Text="Clear" TextColor="White" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4" BackgroundColor="Blue" FontSize="16" Clicked="Clear_Clicked"/>
+        </Grid>
+        <Grid ColumnSpacing="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
 
-        </VerticalStackLayout>
-    </ScrollView>
+            <Label x:Name="inputMode" Text="Input Mode: " Grid.Row="0" Grid.Column="0"/>
+            <Picker x:Name="modePicker" VerticalOptions="CenterAndExpand" 
+            HorizontalOptions="StartAndExpand" WidthRequest="150"
+            SelectedIndexChanged="modePicker_SelectedIndexChanged"
+                    Grid.Row="0" Grid.Column="1">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Binary</x:String>
+                        <x:String>Octal</x:String>
+                        <x:String>Decimal</x:String>
+                        <x:String>Hexadecimal</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
 
+            <Label x:Name="binaryHeader" Text="Binary: " Grid.Row="1" Grid.Column="0"/>
+            <Label x:Name="binaryLabel" Text="0" Grid.Row="1" Grid.Column="1"/>
+            
+            <Label x:Name="octalHeader" Text="Octal: " Grid.Row="2" Grid.Column="0"/>
+            <Label x:Name="octalLabel" Text="0" Grid.Row="2" Grid.Column="1"/>
+            
+            <Label x:Name="decimalHeader" Text="Decimal: " Grid.Row="3" Grid.Column="0"/>
+            <Label x:Name="decimalLabel" Text="0" Grid.Row="3" Grid.Column="1"/>
+            
+            <Label x:Name="hexHeader" Text="Hexadecimal: " Grid.Row="4" Grid.Column="0"/>
+            <Label x:Name="hexLabel" Text="0" Grid.Row="4" Grid.Column="1"/>
+        </Grid>
+    </VerticalStackLayout>
 </ContentPage>
