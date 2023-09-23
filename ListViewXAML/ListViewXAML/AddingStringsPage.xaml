@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ListViewXAML.AddingStringsPage">
+    <VerticalStackLayout Padding="0,40,0,0">
+        <Entry x:Name="entry" HorizontalOptions="StartAndExpand" WidthRequest="200"/>
+        <Button Text="Add" Clicked="ButtonClicked"/>
+        <Frame>
+            <ListView x:Name="lv1" HeightRequest="100" VerticalScrollBarVisibility="Always"/>
+        </Frame>
+        <Frame>
+            <ListView x:Name="lv2" HeightRequest="100" VerticalScrollBarVisibility="Always"/>
+        </Frame>
+        <Frame>
+            <ListView x:Name="lv3" HeightRequest="100" VerticalScrollBarVisibility="Always"/>
+        </Frame>
+    </VerticalStackLayout>
+</ContentPage>

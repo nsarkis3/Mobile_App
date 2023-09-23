@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MarginsAndPadding.StackPage">
+    <Page.Resources>
+        <ResourceDictionary>
+            <x:Double x:Key="BoxSize">20</x:Double>
+        </ResourceDictionary>
+    </Page.Resources>
+    <VerticalStackLayout Padding="0,40,0,0">
+        <Frame BorderColor="Black">
+            <VerticalStackLayout x:Name="boxesLayout" >
+                <VerticalStackLayout x:Name="cluster1">
+                    <BoxView x:Name="redBox1" Color="Red" HeightRequest="{StaticResource BoxSize}" />
+                    <BoxView x:Name="greenBox1" Color="Green" HeightRequest="{StaticResource BoxSize}"/>
+                    <BoxView x:Name="blueBox1" Color="Blue" HeightRequest="{StaticResource BoxSize}"/>
+                </VerticalStackLayout>
+                <VerticalStackLayout x:Name="cluster2">
+                    <BoxView x:Name="redBox2" Color="Red" HeightRequest="{StaticResource BoxSize}"/>
+                    <BoxView x:Name="greenBox2" Color="Green" HeightRequest="{StaticResource BoxSize}"/>
+                    <BoxView x:Name="blueBox2" Color="Blue" HeightRequest="{StaticResource BoxSize}"/>
+                </VerticalStackLayout>
+                <VerticalStackLayout x:Name="cluster3">
+                    <BoxView x:Name="redBox3" Color="Red" HeightRequest="{StaticResource BoxSize}"/>
+                    <BoxView x:Name="greenBox3" Color="Green" HeightRequest="{StaticResource BoxSize}"/>
+                    <BoxView x:Name="blueBox3" Color="Blue" HeightRequest="{StaticResource BoxSize}"/>
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+        </Frame>
+        <HorizontalStackLayout>
+            <Slider x:Name="marginSlider" Minimum="0" Maximum="50" Value="0"
+                               WidthRequest="300" ValueChanged="MarginChanged"/>
+            <Label x:Name="marginLabel" Text="Margin = 0"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Slider x:Name="paddingSlider" Minimum="0" Maximum="50" Value="0"
+                                WidthRequest="300" ValueChanged="PaddingChanged" />
+            <Label x:Name="paddingLabel" Text="Padding = 0"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Slider x:Name="spacingSlider" Minimum="0" Maximum="50" Value="0"
+                                WidthRequest="300" ValueChanged="SpacingChanged" />
+            <Label x:Name="spacingLabel" Text="Spacing = 0"/>
+        </HorizontalStackLayout>
+        <Button Text="Reset" Clicked="ResetClicked" />
+    </VerticalStackLayout>
+</ContentPage>

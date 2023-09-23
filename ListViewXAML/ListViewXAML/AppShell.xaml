@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="ListViewXAML.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:ListViewXAML"
+    Shell.FlyoutBehavior="Disabled">
+
+    <TabBar>
+        <Tab Title="Strings">
+            <ShellContent ContentTemplate="{DataTemplate local:SimpleStringsPage}" />
+        </Tab>
+        <Tab Title="Adding">
+            <ShellContent ContentTemplate="{DataTemplate local:AddingStringsPage}" />
+        </Tab>
+        <Tab Title="Schools">
+            <ShellContent ContentTemplate="{DataTemplate local:ObjectPage}" />
+        </Tab>
+        <Tab Title="Template">
+            <ShellContent ContentTemplate="{DataTemplate local:TemplatePage}" />
+        </Tab>
+    </TabBar>
+</Shell>

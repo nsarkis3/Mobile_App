@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="MarginsAndPadding.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MarginsAndPadding"
+    Shell.FlyoutBehavior="Disabled">
+
+    <TabBar>
+        <Tab Title="Controls">
+            <ShellContent ContentTemplate="{DataTemplate local:ControlsPage}" />
+        </Tab>
+        <Tab Title="Stacks">
+            <ShellContent ContentTemplate="{DataTemplate local:StackPage}" />
+        </Tab>
+        <Tab Title="Clusters">
+            <ShellContent ContentTemplate="{DataTemplate local:ClusterPage}" />
+        </Tab>
+        <Tab Title="Grid">
+            <ShellContent ContentTemplate="{DataTemplate local:GridPage}" />
+        </Tab>
+        <Tab Title="Cells">
+            <ShellContent ContentTemplate="{DataTemplate local:CellPage}" />
+        </Tab>
+    </TabBar>
+</Shell>

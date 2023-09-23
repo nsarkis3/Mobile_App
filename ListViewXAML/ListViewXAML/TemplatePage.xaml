@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ListViewXAML;assembly=ListViewXAML"
+             x:Class="ListViewXAML.TemplatePage">
+    <VerticalStackLayout>
+        <Grid Margin="0,0,0,0" ColumnSpacing="5" RowSpacing="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Entry x:Name="schoolName" Placeholder="School Name" WidthRequest="150"
+                Grid.Row="0" Grid.Column="0"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="StartAndExpand"
+            />
+            <Entry x:Name="url" Placeholder="Url" WidthRequest="150"
+                Grid.Row="0" Grid.Column="1"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="EndAndExpand"
+            />
+            <Picker x:Name="primary_Color" WidthRequest="150"
+                Grid.Row="1" Grid.Column="0"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="StartAndExpand">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Red</x:String>
+                        <x:String>Green</x:String>
+                        <x:String>Blue</x:String>
+                        <x:String>Yellow</x:String>
+                        <x:String>Navy</x:String>
+                        <x:String>Purple</x:String>
+                        <x:String>White</x:String>
+                        <x:String>Black</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Picker x:Name="secondary_Color" WidthRequest="150"
+                Grid.Row="1" Grid.Column="1"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="EndAndExpand">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Red</x:String>
+                        <x:String>Green</x:String>
+                        <x:String>Blue</x:String>
+                        <x:String>Yellow</x:String>
+                        <x:String>Navy</x:String>
+                        <x:String>Purple</x:String>
+                        <x:String>White</x:String>
+                        <x:String>Black</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            
+            <Button x:Name="Add" Text="Add" TextColor="White" BackgroundColor="Blue"
+                    CornerRadius="10" Clicked="Add_Clicked"
+                    Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+            />
+        </Grid>
+        
+        <ListView x:Name="lv" HeightRequest="100"
+                  VerticalScrollBarVisibility="Always"
+                  ItemTapped="lv_ItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="local:School">
+                    <ViewCell>
+                        <Grid Margin="0,0,0,0" BackgroundColor="{Binding School2ndColor}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="10" />
+                                <RowDefinition Height="10" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding Name}" WidthRequest="200"
+                                TextColor="{Binding SchoolColor}"
+                                Grid.Row="0" Grid.Column="1" Grid.RowSpan="2"
+                                VerticalOptions="CenterAndExpand"
+                                HorizontalOptions="StartAndExpand"
+                            />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <WebView Grid.Row="2" Grid.Column="0" x:Name="schoolWebsite" HeightRequest="400"/>
+    </VerticalStackLayout>
+</ContentPage>

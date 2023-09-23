@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GridXAML.MainPage">
+
+    <VerticalStackLayout>
+        <HorizontalStackLayout>
+            <Label x:Name="Display" Text="0" FontSize="20" TextColor="Black" HorizontalTextAlignment="End"/>
+        </HorizontalStackLayout>
+        <Grid Padding="20,40,0,10" HeightRequest="600" RowSpacing="3" ColumnSpacing="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Button x:Name="Seven" Text="7" TextColor="Green" Grid.Row="0" Grid.Column="0" BackgroundColor="Bisque" FontSize="16" Clicked="Seven_Clicked"/>
+            <Button x:Name="Eight" Text="8" TextColor="Green" Grid.Row="0" Grid.Column="1" BackgroundColor="Bisque" FontSize="16" Clicked="Eight_Clicked"/>
+            <Button x:Name="Nine" Text="9" TextColor="Green" Grid.Row="0" Grid.Column="2" BackgroundColor="Bisque" FontSize="16" Clicked="Nine_Clicked"/>
+            <Button x:Name="Four" Text="4" TextColor="Green" Grid.Row="1" Grid.Column="0" BackgroundColor="Bisque" FontSize="16" Clicked="Four_Clicked"/>
+            <Button x:Name="Five" Text="5" TextColor="Green" Grid.Row="1" Grid.Column="1" BackgroundColor="Bisque" FontSize="16" Clicked="Five_Clicked"/>
+            <Button x:Name="Six" Text="6" TextColor="Green" Grid.Row="1" Grid.Column="2" BackgroundColor="Bisque" FontSize="16" Clicked="Six_Clicked"/>
+            <Button x:Name="One" Text="1" TextColor="Green" Grid.Row="2" Grid.Column="0" BackgroundColor="Bisque" FontSize="16" Clicked="One_Clicked"/>
+            <Button x:Name="Two" Text="2" TextColor="Green" Grid.Row="2" Grid.Column="1" BackgroundColor="Bisque" FontSize="16" Clicked="Two_Clicked"/>
+            <Button x:Name="Three" Text="3" TextColor="Green" Grid.Row="2" Grid.Column="2" BackgroundColor="Bisque" FontSize="16" Clicked="Three_Clicked"/>
+            <Button x:Name="Zero" Text="0" TextColor="Green" Grid.Row="3" Grid.Column="0" BackgroundColor="Bisque" FontSize="16" Grid.ColumnSpan="2" Clicked="Zero_Clicked"/>
+            <Button x:Name="Clear" Text="Clear" TextColor="Green" Grid.Row="3" Grid.Column="2" BackgroundColor="Bisque" FontSize="16" Clicked="Clear_Clicked"/>
+        </Grid>
+        <HorizontalStackLayout>
+            <Label x:Name="Binary" Text="Binary: "></Label>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Label x:Name="Octal" Text="Octal: "></Label>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Label x:Name="Decimal" Text="Decimal: "></Label>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Label x:Name="Hex" Text="Hex: "></Label>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+
+</ContentPage>
