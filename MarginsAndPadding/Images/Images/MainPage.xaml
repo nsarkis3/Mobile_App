@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Images;assembly=Images"
+             x:Class="Images.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+            <Frame>
+                <StackLayout>
+                    <HorizontalStackLayout>
+                        <Image x:Name="im1" Source="yankees.png" WidthRequest="160" HeightRequest="160"/>
+                        <Image x:Name="im2" Source="mets.png" WidthRequest="160" HeightRequest="160"/>
+                            <Image x:Name="im3" Source="https://aka.ms/campus.jpg" WidthRequest="160" HeightRequest="160"/>
+                        <BoxView WidthRequest="160" HeightRequest="160" Color="Red"/>
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout>
+                        <Label x:Name="label" Text="n/a"/>
+                        <ImageButton Source="dotnet_bot.png"
+                                      WidthRequest="160"
+                                     HeightRequest="160"
+                                     Clicked="ImageButton_Clicked"/>
+                    </HorizontalStackLayout>
+                    <ListView x:Name="lv_people" HeightRequest="200"
+                                VerticalScrollBarVisibility="Always">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="local:Person">
+                    <ViewCell>
+                        <HorizontalStackLayout>
+                            <Image WidthRequest="50" HeightRequest="50"
+                                Source="{Binding GetFavoriteTeamImage}"/>
+                            <Label Text="{Binding Name}"/>
+                        </HorizontalStackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>                </StackLayout>
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

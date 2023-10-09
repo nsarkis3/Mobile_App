@@ -6,17 +6,17 @@
 		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
 		<!-- <TargetFrameworks>$(TargetFrameworks);net6.0-tizen</TargetFrameworks> -->
 		<OutputType>Exe</OutputType>
-		<RootNamespace>MarginsAndPadding</RootNamespace>
+		<RootNamespace>LINQMauiApp</RootNamespace>
 		<UseMaui>true</UseMaui>
 		<SingleProject>true</SingleProject>
 		<ImplicitUsings>enable</ImplicitUsings>
 
 		<!-- Display name -->
-		<ApplicationTitle>MarginsAndPadding</ApplicationTitle>
+		<ApplicationTitle>LINQMauiApp</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.marginsandpadding</ApplicationId>
-		<ApplicationIdGuid>0cc2a159-b90c-40f6-bf33-1516c664ead0</ApplicationIdGuid>
+		<ApplicationId>com.companyname.linqmauiapp</ApplicationId>
+		<ApplicationIdGuid>2b229856-c1b2-4270-a9a4-48afdc43f3e3</ApplicationIdGuid>
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
@@ -49,28 +49,32 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="MyPage.xaml.cs">
-	    <DependentUpon>MyPage.xaml</DependentUpon>
+	  <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
+	  <PackageReference Include="SQLiteNetExtensions.Async" Version="2.1.0" />
+	  <PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.6" />
+	  <PackageReference Include="SQLitePCLRaw.core" Version="2.1.6" />
+	  <PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.6" />
+	  <PackageReference Include="SQLitePCLRaw.provider.e_sqlite3" Version="2.1.6" />
+	  <PackageReference Include="SQLitePCLRaw.provider.sqlite3" Version="2.1.6" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="PersonPage.xaml.cs">
+	    <DependentUpon>PersonPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="CellPage.xaml">
+	  <MauiXaml Update="AutoPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="ClusterPage.xaml">
+	  <MauiXaml Update="PersonPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="ControlsPage.xaml">
+	  <MauiXaml Update="SchoolPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="GridPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="MyPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="StackPage.xaml">
+	  <MauiXaml Update="StudentPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

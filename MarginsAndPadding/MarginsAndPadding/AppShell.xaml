@@ -22,5 +22,8 @@
         <Tab Title="Cells">
             <ShellContent ContentTemplate="{DataTemplate local:CellPage}" />
         </Tab>
+        <Tab Title="My page">
+            <ShellContent ContentTemplate="{DataTemplate local:MyPage}" />
+        </Tab>
     </TabBar>
 </Shell>

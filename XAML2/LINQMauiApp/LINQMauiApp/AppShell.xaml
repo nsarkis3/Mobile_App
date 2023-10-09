@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="LINQMauiApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:LINQMauiApp"
+    Shell.FlyoutBehavior="Disabled">
+
+    <TabBar>
+        <Tab Title="Schools">
+            <ShellContent ContentTemplate="{DataTemplate local:SchoolPage}" />
+        </Tab>
+        <Tab Title="People">
+            <ShellContent ContentTemplate="{DataTemplate local:PersonPage}" />
+        </Tab>
+        <Tab Title="Students">
+            <ShellContent ContentTemplate="{DataTemplate local:StudentPage}" />
+        </Tab>
+        <Tab Title="Autos">
+            <ShellContent ContentTemplate="{DataTemplate local:AutoPage}" />
+        </Tab>
+    </TabBar>
+
+</Shell>

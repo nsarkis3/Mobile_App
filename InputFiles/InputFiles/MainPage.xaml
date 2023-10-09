@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="InputFiles.MainPage">
+
+    <VerticalStackLayout>
+        <Picker x:Name="picker" WidthRequest="400">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Poem</x:String>
+                    <x:String>Todo list</x:String>
+                    <x:String>Embedded resource</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+        <HorizontalStackLayout>
+            <Button Text="Load" Clicked="LoadClicked"/>
+            <Button Text="Save" Clicked="SaveClicked"/>
+            <Button Text="Exit" Clicked="ExitClicked"/>
+        </HorizontalStackLayout>
+        <Editor x:Name="editor" HorizontalOptions="Start" WidthRequest="400" FontSize="24" HeightRequest="600"/>
+    </VerticalStackLayout>
+
+</ContentPage>

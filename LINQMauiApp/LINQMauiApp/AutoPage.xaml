@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LINQMauiApp.AutoPage"
+             Title="Autos">
+    <VerticalStackLayout Padding="0,40,0,0">
+        <HorizontalStackLayout>
+            <Button Text="Q0" Clicked="ButtonClicked"/>
+            <Button Text="Q1" Clicked="ButtonClicked"/>
+            <Button Text="Q2" Clicked="ButtonClicked"/>
+            <Button Text="Q3" Clicked="ButtonClicked"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Button Text="Q4" Clicked="ButtonClicked"/>
+            <Button Text="Q5" Clicked="ButtonClicked"/>
+            <Button Text="Q6" Clicked="ButtonClicked"/>
+            <Button Text="Q7" Clicked="ButtonClicked"/>
+        </HorizontalStackLayout>
+        <ListView x:Name="lv" HeightRequest="600" VerticalScrollBarVisibility="Always"/>
+    </VerticalStackLayout>
+</ContentPage>
