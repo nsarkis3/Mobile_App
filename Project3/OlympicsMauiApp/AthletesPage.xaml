@@ -7,9 +7,9 @@
     <VerticalStackLayout Margin="5,20,5,5">
         <Grid RowSpacing="20" ColumnSpacing="3">
             <Grid.RowDefinitions>
-                <RowDefinition Height="200" />
-                <RowDefinition Height="200" />
-                <RowDefinition Height="200" />
+                <RowDefinition Height="175" />
+                <RowDefinition Height="175" />
+                <RowDefinition Height="175" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
