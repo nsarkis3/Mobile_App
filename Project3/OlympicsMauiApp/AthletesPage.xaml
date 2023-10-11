@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:OlympicsMauiApp;assembly=OlympicsMauiApp"
+             x:Class="OlympicsMauiApp.AthletesPage">
+
+    <VerticalStackLayout Margin="5,20,5,5">
+        <Grid RowSpacing="20" ColumnSpacing="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200" />
+                <RowDefinition Height="200" />
+                <RowDefinition Height="200" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+            <ListView x:Name="Country" VerticalScrollBarVisibility="Always" Grid.Column="0" Grid.Row="0" ItemSelected="Country_ItemSelected"/>
+            <ListView x:Name="Category" VerticalScrollBarVisibility="Always" Grid.Column="0" Grid.Row="1" ItemSelected="Category_ItemSelected"/>
+            <ListView x:Name="Event" VerticalScrollBarVisibility="Always" Grid.Column="1" Grid.Row="0" 
+                      Grid.ColumnSpan="2" Grid.RowSpan="2" ItemSelected="Event_ItemSelected"/>
+
+            <ListView x:Name="Athletes" VerticalScrollBarVisibility="Always" ItemSelected="Athletes_ItemSelected" Grid.Row="2" Grid.Column="0" 
+                      Grid.ColumnSpan="2" SeparatorColor="DarkGray" SeparatorVisibility="Default">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="local:Participant2016Summer">
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="15" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Image x:Name="medalPicture" Source="{Binding MedalImage}" Grid.Row="0" Grid.Column="0" WidthRequest="15" HeightRequest="15"/>
+                                <Label x:Name="athlete" Text="{Binding Name}" TextColor="{Binding TextColor}" TextDecorations="Underline" Grid.Row="0" 
+                                       FontSize="14" FontAttributes="Bold" Grid.Column="1" Padding="0,5,0,0"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

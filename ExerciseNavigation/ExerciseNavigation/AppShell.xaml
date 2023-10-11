@@ -6,9 +6,10 @@
     xmlns:local="clr-namespace:ExerciseNavigation"
     Shell.FlyoutBehavior="Disabled">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <ShellContent Title="Home" ContentTemplate="{DataTemplate local:MainPage}" Route="MainPage" />
+    <ShellContent Title="Units" ContentTemplate="{DataTemplate local:Units}" Route="Units" />
+    <ShellContent Title="Technology" ContentTemplate="{DataTemplate local:Technology}" Route="Technology" />
+    <ShellContent Title="Credits" ContentTemplate="{DataTemplate local:Credits}" Route="Credits" />
+    <ShellContent Title="TechType" ContentTemplate="{DataTemplate local:TechType}" Route="TechType" />
 
 </Shell>
