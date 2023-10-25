@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DataBindings.Bind"
+             Title="Bind">
+    <VerticalStackLayout>
+        <Picker x:Name="bindPicker">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Option 1</x:String>
+                    <x:String>Option 2</x:String>
+                    <x:String>Option 3</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+        <Label Text="{Binding SelectedItem, Source={x:Reference bindPicker}}" VerticalOptions="Fill" />
+        <Label Text="{Binding SelectedIndex, Source={x:Reference bindPicker}}" VerticalOptions="Fill" />
+
+        <VerticalStackLayout>
+            <Label Text=" "/>
+        </VerticalStackLayout>
+
+        <DatePicker x:Name="datePick" BindingContext="{x:Reference label}" Date="{Binding FontSize, Mode=OneWayToSource}"/>
+        <Label x:Name="label" BindingContext="{x:Reference datePick}" Text="{Binding Date}" VerticalTextAlignment="Center" />
+        
+    </VerticalStackLayout>
+</ContentPage>

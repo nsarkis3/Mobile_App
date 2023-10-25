@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Zipcode;assembly=Zipcode"
+             x:Class="Zipcode.MainPage">
+
+    <VerticalStackLayout Padding="10,10,10,0">
+        <HorizontalStackLayout>
+            <Label Text="City:" VerticalOptions="Center" />
+            <Entry x:Name="cityEntry" VerticalOptions="Center" Placeholder="oxford, new york" />
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Label Text="State:" VerticalOptions="Center" />
+            <Entry x:Name="stateEntry" VerticalOptions="Center" Placeholder="oh, ny" />
+        </HorizontalStackLayout>
+        <Button Text="Look up" BackgroundColor="Blue" CornerRadius="5" TextColor="White" Clicked="Button_Clicked"/>
+        <ListView x:Name="lv" VerticalOptions="Start" VerticalScrollBarVisibility="Always">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="local:Place">
+                    <ViewCell>
+                        <Grid ColumnSpacing="10" RowSpacing="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding placeName}" Grid.Column="0" TextColor="Blue"/>
+                            <Label Text="{Binding postalCode}" Grid.Column="1"/>
+                            <Label Text="{Binding latitude}" Grid.Column="2"/>
+                            <Label Text="{Binding longitude}" Grid.Column="3"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </VerticalStackLayout>
+</ContentPage>

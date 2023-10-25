@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DataBindings.ControlToControl"
+             Title="ControlToControl">
+    <VerticalStackLayout Margin="0,40,0,40">
+        
+        <VerticalStackLayout>
+            <HorizontalStackLayout>
+                <Label Text="ROTATION"
+                        BindingContext="{x:Reference Name=slider}"
+                        Rotation="{x:Binding Path=Value}"
+                        FontAttributes="Bold"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Fill" />
+                <Label BindingContext="{Reference slider}"
+                        Text="{Binding Value, StringFormat='The angle is {0:F0} degrees'}"
+                        FontAttributes="Bold"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Fill" />
+            </HorizontalStackLayout>
+            <Slider x:Name="slider"
+                Maximum="360"
+                VerticalOptions="Fill" />
+        </VerticalStackLayout>
+        
+        <HorizontalStackLayout Spacing="30">
+            <Entry x:Name="anEntry" WidthRequest="100"/>
+            <Label BindingContext="{Reference anEntry}" Text="{Binding Text}" WidthRequest="100"/>
+            <Label BindingContext="{Reference anEntry}" Text="{Binding Text.Length, StringFormat='{0}'}"
+                                WidthRequest="100"/>
+        </HorizontalStackLayout>
+        
+        <VerticalStackLayout>
+            <Label Text="Some text"
+                RotationX="{Binding Source={Reference rotationXSlider}, Path=Value}"
+                RotationY="{Binding Source={Reference rotationYSlider}, Path=Value}"/>
+            <Slider x:Name="rotationXSlider" Minimum="-180" Maximum="180" Value="0"/>
+            <Slider x:Name="rotationYSlider" Minimum="-180" Maximum="180" Value="0"/>
+        </VerticalStackLayout>
+        
+        <VerticalStackLayout>
+            <ListView x:Name="lv" SelectedItem="CSE 174">
+                <ListView.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>CSE 174</x:String>
+                        <x:String>CSE 271</x:String>
+                        <x:String>CSE 274</x:String>
+                    </x:Array>
+                </ListView.ItemsSource>
+            </ListView>
+            <Label Text="{Binding Source={Reference lv}, Path=SelectedItem}"/>
+        </VerticalStackLayout>
+        
+    </VerticalStackLayout>
+</ContentPage>
