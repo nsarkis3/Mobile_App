@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SymptomTracker.DatePopup"
+             Title="DatePopup">
+
+    <VerticalStackLayout>
+
+        <VerticalStackLayout BackgroundColor="DarkBlue">
+            <Label x:Name="year" HorizontalTextAlignment="Start" TextColor="White" Margin="15,10,0,0"/>
+            <Label x:Name="day" Text="Sun, Oct 15" FontSize="36" HorizontalTextAlignment="Start" 
+                   VerticalTextAlignment="Center" TextColor="White" Margin="15,0,0,15" FontAttributes="Bold"/>
+        </VerticalStackLayout>
+
+        <Grid HorizontalOptions="Center" ColumnSpacing="5" Margin="15,5,15,5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="previous" Text="&lt;" TextColor="Black" BackgroundColor="Transparent" 
+                BorderColor="Transparent" Grid.Row="0" Grid.Column="0" FontAttributes="Bold" Clicked="monthChanged"/>
+            <Label x:Name="current" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" 
+                VerticalOptions="Center" FontAttributes="Bold"/>
+            <Button x:Name="next" Text=">" TextColor="Black" BackgroundColor="Transparent" 
+                BorderColor="Transparent" Grid.Row="0" Grid.Column="2" FontAttributes="Bold" Clicked="monthChanged"/>
+        </Grid>
+
+        <Grid x:Name="gridCalendar" HorizontalOptions="Center" RowSpacing="5" Margin="15,5,15,5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Label Text="S" Grid.Row="1" Grid.Column="0" TextColor="Gray" HorizontalOptions="Center"/>
+            <Label Text="M" Grid.Row="1" Grid.Column="1" TextColor="Gray" HorizontalOptions="Center"/>
+            <Label Text="T" Grid.Row="1" Grid.Column="2" TextColor="Gray" HorizontalOptions="Center"/>
+            <Label Text="W" Grid.Row="1" Grid.Column="3" TextColor="Gray" HorizontalOptions="Center"/>
+            <Label Text="T" Grid.Row="1" Grid.Column="4" TextColor="Gray" HorizontalOptions="Center"/>
+            <Label Text="F" Grid.Row="1" Grid.Column="5" TextColor="Gray" HorizontalOptions="Center"/>
+            <Label Text="S" Grid.Row="1" Grid.Column="6" TextColor="Gray" HorizontalOptions="Center"/>
+        </Grid>
+
+        <HorizontalStackLayout HorizontalOptions="EndAndExpand" VerticalOptions="End" Margin="0,0,20,0">
+            <Button Text="Cancel" TextColor="DarkBlue" FontAttributes="Bold"
+                BackgroundColor="Transparent" BorderColor="Transparent" Clicked="Exit"/>
+            <Button Text="OK" TextColor="DarkBlue" FontAttributes="Bold"
+                BackgroundColor="Transparent" BorderColor="Transparent" Clicked="Exit"/>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

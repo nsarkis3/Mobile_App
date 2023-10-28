@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SymptomTracker.TimePopup"
+             Title="TimePopup">
+    <VerticalStackLayout>
+        <VerticalStackLayout BackgroundColor="DarkBlue">
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Button x:Name="Hours" ClassId="Hours" FontSize="60" TextColor="White" BorderColor="Transparent" BackgroundColor="Transparent"
+                    FontAttributes="Bold" Clicked="switchMode" IsEnabled="False"/>
+                <Label Text=":" FontSize="60" TextColor="White" BackgroundColor="Transparent" FontAttributes="Bold" Margin="0,5"/>
+                <Button x:Name="Minutes" ClassId="Minutes" FontSize="60" TextColor="White" BorderColor="Transparent" BackgroundColor="Transparent"
+                    FontAttributes="Bold" Opacity="0.5" Clicked="switchMode"/>
+
+                <VerticalStackLayout Margin="0,0,10,0">
+                    <Button x:Name="am" Text="AM" TextColor="White" BorderColor="Transparent" BackgroundColor="Transparent" 
+                        Clicked="flip"/>
+                    <Button x:Name="pm" Text="PM" TextColor="White" BorderColor="Transparent" BackgroundColor="Transparent"
+                        Clicked="flip"/>
+                </VerticalStackLayout>
+
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+
+        <Grid x:Name="gridClock" BackgroundColor="White" Margin="0,30">
+            <BoxView WidthRequest="250" HeightRequest="250" Color="LightGray" CornerRadius="125"
+            VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+            <Ellipse x:Name="clock" WidthRequest="250" HeightRequest="250" Stroke="Black" StrokeThickness="2"
+            VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+            <BoxView x:Name="center" WidthRequest="8" HeightRequest="8" Color="Black" CornerRadius="4"
+            VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+
+            <Button ClassId="12" x:Name="OnHour" Text="12" FontSize="16" VerticalOptions="Start" HorizontalOptions="Center" Margin="100,0,100,0" BackgroundColor="Transparent"
+            TextColor="Black" BorderColor="Transparent" CornerRadius="50" Clicked="valueClicked"/>
+            <Button ClassId="1" x:Name="fiveAfter" Text="1" FontSize="16" VerticalOptions="Start" HorizontalOptions="Center" Margin="190,20,95,0" BackgroundColor="Transparent"
+            TextColor="Black" BorderColor="Transparent" CornerRadius="50" Clicked="valueClicked"/>
+            <Button ClassId="2" x:Name="tenAfter" Text="2" FontSize="16" VerticalOptions="Center" HorizontalOptions="Center" Margin="165,0,0,95" BackgroundColor="Transparent"
+            TextColor="Black" BorderColor="Transparent" CornerRadius="50" Clicked="valueClicked"/>
+            <Button ClassId="3" x:Name="fifteenAfter" Text="3" FontSize="16" VerticalOptions="Center" HorizontalOptions="Center" Margin="200,0,0,0" BackgroundColor="Transparent"
+            TextColor="Black" BorderColor="Transparent" CornerRadius="50" Clicked="valueClicked"/>
+            <Button ClassId="4" x:Name="twentyAfter" Text="4" FontSize="16" VerticalOptions="Center" HorizontalOptions="Center" Margin="165,100,0,0" BackgroundColor="Transparent"
+            TextColor="Black" BorderColor="Transparent" CornerRadius="50" Clicked="valueClicked"/>
+            <Button ClassId="5" x:Name="twentyFiveAfter" Text="5" FontSize="16" VerticalOptions="End" HorizontalOptions="Center" Margin="190,0,95,20" BackgroundColor="Transparent"
+            TextColor="Black" BorderColor="Transparent" CornerRadius="50" Clicked="valueClicked"/>
+            <Button ClassId="6" x:Name="halfPast" Text="6" FontSize="16" VerticalOptions="End" HorizontalOptions="Center" Margin="100,0,100,5" BackgroundColor="Transparent"
+            TextColor="Black" BorderColor="Transparent" CornerRadius="50" Clicked="valueClicked"/>
+            <Button ClassId="7" x:Name="twentyFiveTill" Text="7" FontSize="16" VerticalOptions="End" HorizontalOptions="Center" Margin="10,0,100,20" BackgroundColor="Transparent"
+            TextColor="Black" BorderColor="Transparent" CornerRadius="50" Clicked="valueClicked"/>
+            <Button ClassId="8" x:Name="twentyTill" Text="8" FontSize="16" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,100,165,0" BackgroundColor="Transparent"
+            TextColor="Black" BorderColor="Transparent" CornerRadius="50" Clicked="valueClicked"/>
+            <Button ClassId="9" x:Name="fifteenTill" Text="9" FontSize="16" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,0,200,0" BackgroundColor="Transparent"
+            TextColor="Black" BorderColor="Transparent" CornerRadius="50" Clicked="valueClicked"/>
+            <Button ClassId="10" x:Name="tenTill" Text="10" FontSize="16" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,0,165,95" BackgroundColor="Transparent"
+            TextColor="Black" BorderColor="Transparent" CornerRadius="50" Clicked="valueClicked"/>
+            <Button ClassId="11" x:Name="fiveTill" Text="11" FontSize="16" VerticalOptions="Start" HorizontalOptions="Center" Margin="95,20,190,0" BackgroundColor="Transparent"
+            TextColor="Black" BorderColor="Transparent" CornerRadius="50" Clicked="valueClicked"/>
+        </Grid>
+        <HorizontalStackLayout>
+            <Button Text="Cancel" TextColor="DarkBlue" FontAttributes="Bold"
+            BackgroundColor="Transparent" BorderColor="Transparent" Clicked="Exit"/>
+            <Button Text="OK" TextColor="DarkBlue" FontAttributes="Bold"
+            BackgroundColor="Transparent" BorderColor="Transparent" Clicked="Exit"/>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

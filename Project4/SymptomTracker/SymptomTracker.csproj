@@ -59,4 +59,22 @@
 	  <PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.6" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Compile Update="EditItem.xaml.cs">
+	    <DependentUpon>EditItem.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="EditItem.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="DatePopup.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="TimePopup.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
 </Project>

@@ -6,8 +6,9 @@
     xmlns:local="clr-namespace:SymptomTracker"
     Shell.FlyoutBehavior="Disabled">
 
-    <ShellContent
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <ShellContent ContentTemplate="{DataTemplate local:MainPage}" Route="MainPage" />
+    <ShellContent ContentTemplate="{DataTemplate local:EditItem}" Route="EditItem" />
+    <ShellContent ContentTemplate="{DataTemplate local:DatePopup}" Route="DatePopup" />
+    <ShellContent ContentTemplate="{DataTemplate local:TimePopup}" Route="TimePopup" />
 
 </Shell>

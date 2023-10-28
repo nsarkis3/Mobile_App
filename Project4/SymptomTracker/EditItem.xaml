@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SymptomTracker.EditItem"
+             Title="EditItem">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <VerticalStackLayout x:Name="mainEdit">
+            <HorizontalStackLayout>
+                <Label Text="Date:"/>
+                <Button x:Name="dateButton" BackgroundColor="Transparent" TextColor="Black" BorderColor="Transparent" HorizontalOptions="StartAndExpand" 
+                    HeightRequest="50" Clicked="propertyButton_Clicked"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout>
+                <Label Text="Time:"/>
+                <Button x:Name="timeButton" Text="12:00 AM" BackgroundColor="Transparent" TextColor="Black" BorderColor="Transparent" HorizontalOptions="StartAndExpand" 
+                    HeightRequest="50" Clicked="propertyButton_Clicked"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout>
+                <Button x:Name="intensityButton" Text="5" BackgroundColor="Transparent" TextColor="Black" BorderColor="Transparent" HorizontalOptions="StartAndExpand"  
+                HeightRequest="50" Clicked="propertyButton_Clicked"/>
+            </HorizontalStackLayout>
+        
+            <Entry x:Name="notes" Placeholder="Notes here" HorizontalOptions="Fill" HeightRequest="100"/>
+            <Button x:Name="Edit" ClassId="EditNew" HorizontalOptions="Fill" Clicked="ExitEdit"/>
+            <Button x:Name="Cancel" ClassId="quit" Text="Cancel" HorizontalOptions="Fill" Clicked="ExitEdit"/>
+        </VerticalStackLayout>
+
+        <Frame x:Name="popupFrame" BorderColor="Black" BackgroundColor="White" IsEnabled="False" IsVisible="False" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+            Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Margin="0,60,0,60">
+            <VerticalStackLayout>
+                <ListView x:Name="lv" RowHeight="30" WidthRequest="200" ItemSelected="lv_ItemSelected"/>
+                <Button x:Name="ClosePop" Text="Abandon" HorizontalOptions="End" VerticalOptions="End" TextColor="DarkBlue" BackgroundColor="Transparent" Clicked="ClosePop_Clicked"/>
+            </VerticalStackLayout>
+        </Frame>
+    </Grid>
+</ContentPage>
