@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Graphics.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Graphics"
+    Shell.FlyoutBehavior="Disabled">
+
+    <TabBar>
+        <Tab Title="Basic">
+            <ShellContent ContentTemplate="{DataTemplate local:Basic}" />
+        </Tab>
+        <Tab Title="Main">
+            <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
+        </Tab>
+        <Tab Title="Primitives">
+            <ShellContent ContentTemplate="{DataTemplate local:Primitives}" />
+        </Tab>
+        <Tab Title="Plotting">
+            <ShellContent ContentTemplate="{DataTemplate local:Plotting}" />
+        </Tab>
+        <Tab Title="Graph">
+            <ShellContent ContentTemplate="{DataTemplate local:Graph}" />
+        </Tab>
+    </TabBar>
+</Shell>

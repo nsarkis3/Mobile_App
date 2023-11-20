@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:MVVM.ViewModels"
+             x:Class="MVVM.Views.SimpleMultiplierPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <viewmodels:SimpleMultiplierViewModel x:Key="viewModel" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <VerticalStackLayout BindingContext="{StaticResource viewModel}" Padding="0,40,0,0">
+
+        <VerticalStackLayout>
+            <Slider Value="{Binding Multiplicand}" />
+            <Slider Value="{Binding Multiplier}" />
+        </VerticalStackLayout>
+
+        <HorizontalStackLayout Spacing="0" HorizontalOptions="Center">
+            <Label Text="{Binding Multiplicand, StringFormat='{0:F3}'}" />
+            <Label Text="{Binding Multiplier, StringFormat=' x {0:F3}'}" />
+            <Label Text="{Binding Product, StringFormat=' = {0:F3}'}" />
+        </HorizontalStackLayout>
+
+        <VerticalStackLayout>
+            <Stepper Value="{Binding First}" Minimum="0" Maximum="10"/>
+            <Stepper Value="{Binding Second}" Minimum="0" Maximum="10"/>
+        </VerticalStackLayout>
+
+        <HorizontalStackLayout Spacing="0" HorizontalOptions="Center">
+            <Label Text="{Binding First}" />
+            <Label Text="{Binding Second, StringFormat=' + {0}'}" />
+            <Label Text="{Binding Sum, StringFormat=' = {0}'}" />
+        </HorizontalStackLayout>
+
+
+    </VerticalStackLayout>
+</ContentPage>

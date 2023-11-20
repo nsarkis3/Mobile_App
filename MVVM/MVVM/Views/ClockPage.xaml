@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:MVVM.ViewModels"
+             x:Class="MVVM.Views.ClockPage">
+    <VerticalStackLayout VerticalOptions="Start">
+        <VerticalStackLayout.BindingContext>
+            <viewmodels:ClockViewModel/>
+        </VerticalStackLayout.BindingContext>
+        <Label Text="{Binding Source={x:Static sys:DateTime.Now},
+                              StringFormat='This program started at {0:F}'}" />
+
+        <Label Text="{Binding DateTime.Date, StringFormat='Now, the time is {0}'}"/>
+        <Label Text="{Binding DateTime.Hour, StringFormat='The hour is {0}'}" />
+        <Label Text="{Binding DateTime.Minute, StringFormat='The minute is {0}'}" />
+        <Label Text="{Binding DateTime.Second, StringFormat='The seconds are {0}'}" />
+        <Label Text="{Binding DateTime.Millisecond, StringFormat='The milliseconds are {0}'}" />
+        <Label Text="{Binding ElapsedTime, StringFormat='The elapsed time is {0}'}" />
+    </VerticalStackLayout>
+</ContentPage>

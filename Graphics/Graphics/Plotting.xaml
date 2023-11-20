@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:drawables="clr-namespace:Graphics.Drawables"
+             x:Class="Graphics.Plotting">
+    <ContentPage.Resources>
+        <drawables:PlottingDrawable x:Key="plottingDrawable"/>
+    </ContentPage.Resources>
+    <VerticalStackLayout>
+        <GraphicsView Drawable="{StaticResource plottingDrawable}" x:Name="graphics"
+                            WidthRequest="300" HeightRequest="300"
+                            HorizontalOptions="Start"/>
+        <Entry x:Name="data" WidthRequest="200" Text="10,20,30,10"/>
+        <Entry x:Name="labels" WidthRequest="200" Text="Orange,Apple,Pear,Kiwi"/>
+        <Button Text="Plot" Clicked="Button_Clicked"/>
+
+    </VerticalStackLayout>
+</ContentPage>

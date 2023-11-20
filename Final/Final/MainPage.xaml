@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Final;assembly=Final"
+             x:Class="Final.MainPage">
+    <Grid Margin="10,0,10,5" ColumnSpacing="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Label Text="45:00" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" HorizontalOptions="CenterAndExpand"/>
+
+        <Button Text="Start" Grid.Row="1" Grid.Column="0"/>
+        <Button Text="Half" Grid.Row="1" Grid.Column="1"/>
+        <Button Text="End" Grid.Row="1" Grid.Column="2"/>
+
+        <Label Text="Active Line: *" FontSize="24" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3"/>
+
+        <ListView x:Name="lv" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="local:Player">
+                    <ViewCell>
+                        <Grid ColumnSpacing="20" RowSpacing="5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding Position}" FontSize="18" Grid.Row="0" Grid.Column="0"/>
+                            <Label Text="{Binding Name}" FontSize="18" Grid.Row="0" Grid.Column="1"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button Text="Change" HorizontalOptions="Start" Grid.Row="4" Grid.Column="0"/>
+        <Button x:Name="Pull" Text="Pull" HorizontalOptions="End" Clicked="Pull_Clicked"
+                    Grid.Row="4" Grid.Column="2"/>
+
+        <Button x:Name="SetUp" Text="Set up lines" Clicked="SetUp_Clicked" HorizontalOptions="Center"
+                    Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3"/>
+        <Button x:Name="Stats" Text="View Stats" Clicked="Stats_Clicked" HorizontalOptions="Center"
+                    Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3"/>
+    </Grid>
+
+</ContentPage>

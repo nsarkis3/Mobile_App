@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Graphics.Primitives"
+             xmlns:drawables="clr-namespace:Graphics.Drawables">
+    <ContentPage.Resources>
+        <drawables:PrimitivesDrawable x:Key="primitivesDrawable"/>
+    </ContentPage.Resources>
+    <VerticalStackLayout>
+        <GraphicsView Drawable="{StaticResource primitivesDrawable}" x:Name="graphics1"
+                        WidthRequest="250" HeightRequest="500"
+                      HorizontalOptions="Start"/>
+    </VerticalStackLayout>
+</ContentPage>

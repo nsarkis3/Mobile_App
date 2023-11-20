@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Final.SetUpLines"
+             Title="SetUpLines">
+    <VerticalStackLayout>
+        <HorizontalStackLayout>
+            <Label Text="Line: " />
+            <Entry x:Name="LineName" Placeholder="Name"/>
+        </HorizontalStackLayout>
+        <Label Text="Player:"/>
+        <ListView>
+            <ListView.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Nic Sarkis</x:String>
+                    <x:String>Alex Rintamaa</x:String>
+                    <x:String>Carlo Vanni</x:String>
+                </x:Array>
+            </ListView.ItemsSource>
+        </ListView>
+        <Button x:Name="AddPlayer" Text="Add Player" Clicked="AddPlayer_Clicked"/>
+        <HorizontalStackLayout>
+            <Button x:Name="Clear" Text="Clear"/>
+            <Button x:Name="Delete" Text="Delete" Clicked="Finish_Clicked"/>
+            <Button x:Name="Save" Text="Save" Clicked="Finish_Clicked"/>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

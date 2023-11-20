@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Final.EditPlayer"
+             Title="EditPlayer">
+    <VerticalStackLayout Spacing="10">
+        <HorizontalStackLayout Spacing="10">
+            <Label Text="First: "/>
+            <Entry Placeholder=""/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout Spacing="10">
+            <Label Text="Last: "/>
+            <Entry Placeholder=""/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout Spacing="10">
+            <Label Text="Year: "/>
+            <Entry Placeholder=""/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout Spacing="10">
+            <Label Text="Position: "/>
+            <Entry Placeholder=""/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout Spacing="10">
+            <Button Text="Save" Clicked="Finish_Clicked"/>
+            <Button Text="Delete" Clicked="Finish_Clicked"/>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

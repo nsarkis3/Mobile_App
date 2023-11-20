@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Final.Pull"
+             Title="Pull">
+    <VerticalStackLayout>
+        <Label Text="Players:"/>
+        <Button x:Name="Player1" Text="Nic Sarkis"/>
+        <Button x:Name="Player2" Text="Alex Rintamaa"/>
+        <Button x:Name="Player3" Text="Carlo Vanni"/>
+
+        <HorizontalStackLayout>
+            <Button x:Name="Turn" Text="Turn"/>
+            <Button x:Name="Score" Text="Score" Clicked="Score_Clicked"/>
+        </HorizontalStackLayout>
+        <Button x:Name="Sub" Text="Sub"/>
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:MVVM.ViewModels"
+             x:Class="MVVM.Views.PowersOfThreePage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <viewmodels:PowersViewModel x:Key="viewModel">
+                <x:Arguments>
+                    <x:Double>3</x:Double>
+                </x:Arguments>
+            </viewmodels:PowersViewModel>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <VerticalStackLayout BindingContext="{StaticResource viewModel}">
+        <HorizontalStackLayout
+                     HorizontalOptions="Center" VerticalOptions="Center">
+            <Label FontSize="Large" Text="{Binding BaseValue, StringFormat='{0}'}" />
+            <Label FontSize="Small" Text="{Binding Exponent, StringFormat='{0}'}" />
+            <Label FontSize="Large" Text="{Binding Power, StringFormat=' = {0}'}" />
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout VerticalOptions="Fill">
+            <Button Text="Increase"
+                    Command="{Binding IncreaseExponentCommand}"
+                    HorizontalOptions="Center" />
+            <Button Text="Decrease"
+                    Command="{Binding DecreaseExponentCommand}"
+                    HorizontalOptions="Center" />
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

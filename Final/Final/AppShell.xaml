@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Final.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Final"
+    Shell.FlyoutBehavior="Disabled">
+
+    <ShellContent Title="Home" ContentTemplate="{DataTemplate local:MainPage}" Route="MainPage" />
+    <ShellContent Title="SetUpLines" ContentTemplate="{DataTemplate local:SetUpLines}" Route="SetUpLines" />
+    <ShellContent Title="EditPlayer" ContentTemplate="{DataTemplate local:EditPlayer}" Route="EditPlayer" />
+    <ShellContent Title="Pull" ContentTemplate="{DataTemplate local:Pull}" Route="Pull" />
+    <ShellContent Title="Stats" ContentTemplate="{DataTemplate local:Stats}" Route="Stats" />
+    
+</Shell>
