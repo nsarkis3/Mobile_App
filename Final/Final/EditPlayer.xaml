@@ -6,19 +6,19 @@
     <VerticalStackLayout Spacing="10">
         <HorizontalStackLayout Spacing="10">
             <Label Text="First: "/>
-            <Entry Placeholder=""/>
+            <Entry x:Name="First" Placeholder=""/>
         </HorizontalStackLayout>
         <HorizontalStackLayout Spacing="10">
             <Label Text="Last: "/>
-            <Entry Placeholder=""/>
+            <Entry x:Name="Last" Placeholder=""/>
         </HorizontalStackLayout>
         <HorizontalStackLayout Spacing="10">
             <Label Text="Year: "/>
-            <Entry Placeholder=""/>
+            <Entry x:Name="Year" Placeholder=""/>
         </HorizontalStackLayout>
         <HorizontalStackLayout Spacing="10">
             <Label Text="Position: "/>
-            <Entry Placeholder=""/>
+            <Entry x:Name="Position" Placeholder=""/>
         </HorizontalStackLayout>
         <HorizontalStackLayout Spacing="10">
             <Button Text="Save" Clicked="Finish_Clicked"/>

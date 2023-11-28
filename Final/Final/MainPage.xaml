@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Final;assembly=Final"
+             xmlns:viewModels="clr-namespace:Final.ViewModels;assembly=Final"
              x:Class="Final.MainPage">
     <Grid Margin="10,0,10,5" ColumnSpacing="5">
         <Grid.RowDefinitions>
@@ -19,11 +20,14 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <Label Text="45:00" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" HorizontalOptions="CenterAndExpand"/>
+        <HorizontalStackLayout>
+            <Label Text="{Binding RemainingTime, StringFormat='Timer: {0:mm\\:ss}'}"
+                   Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" HorizontalOptions="CenterAndExpand"/>
+        </HorizontalStackLayout>
 
-        <Button Text="Start" Grid.Row="1" Grid.Column="0"/>
-        <Button Text="Half" Grid.Row="1" Grid.Column="1"/>
-        <Button Text="End" Grid.Row="1" Grid.Column="2"/>
+        <Button Text="Start" Grid.Row="1" Grid.Column="0" Clicked="TimerEvent"/>
+        <Button Text="Half" Grid.Row="1" Grid.Column="1" Clicked="TimerEvent"/>
+        <Button Text="End" Grid.Row="1" Grid.Column="2" Clicked="TimerEvent"/>
 
         <Label Text="Active Line: *" FontSize="24" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3"/>
 

@@ -9,15 +9,7 @@
             <Entry x:Name="LineName" Placeholder="Name"/>
         </HorizontalStackLayout>
         <Label Text="Player:"/>
-        <ListView>
-            <ListView.ItemsSource>
-                <x:Array Type="{x:Type x:String}">
-                    <x:String>Nic Sarkis</x:String>
-                    <x:String>Alex Rintamaa</x:String>
-                    <x:String>Carlo Vanni</x:String>
-                </x:Array>
-            </ListView.ItemsSource>
-        </ListView>
+        <ListView x:Name="lv" HeightRequest="200" ItemSelected="lv_ItemSelected"/>
         <Button x:Name="AddPlayer" Text="Add Player" Clicked="AddPlayer_Clicked"/>
         <HorizontalStackLayout>
             <Button x:Name="Clear" Text="Clear"/>
