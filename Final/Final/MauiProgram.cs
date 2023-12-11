@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Final.ViewModels;
+using Microsoft.Extensions.Logging;
+using Plugin.Maui.Audio;
 
 namespace Final
 {
@@ -14,9 +16,10 @@ namespace Final
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
-
+            builder.Services.AddSingleton(AudioManager.Current);
+            builder.Services.AddTransient<MainPage>();
 #if DEBUG
-		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

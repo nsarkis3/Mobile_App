@@ -2,19 +2,41 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Final.SetUpLines"
+             xmlns:local="clr-namespace:Final;assembly=Final"
              Title="SetUpLines">
-    <VerticalStackLayout>
+    <VerticalStackLayout Spacing="5">
+        <Label Text="Set A Line" FontSize="34"/>
+        <Label Text="Please select 7 players to play the point"/>
         <HorizontalStackLayout>
             <Label Text="Line: " />
-            <Entry x:Name="LineName" Placeholder="Name"/>
+            <Picker SelectedIndex="0" x:Name="Possesion">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Offense</x:String>
+                        <x:String>Defense</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
         </HorizontalStackLayout>
-        <Label Text="Player:"/>
-        <ListView x:Name="lv" HeightRequest="200" ItemSelected="lv_ItemSelected"/>
-        <Button x:Name="AddPlayer" Text="Add Player" Clicked="AddPlayer_Clicked"/>
+        <Label Text="Select 7 Players from the roster:"/>
+        <ListView x:Name="lv" HeightRequest="300" ItemSelected="lv_ItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="local:Player">
+                    <ViewCell>
+                        <HorizontalStackLayout BackgroundColor="{Binding Selected}" Margin="2,2,2,2" HeightRequest="40">
+                            <Image Source="{Binding Icon}" HeightRequest="30" WidthRequest="30"/>
+                            <Label Text="{Binding Name}" VerticalOptions="Center"/>
+                        </HorizontalStackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
         <HorizontalStackLayout>
-            <Button x:Name="Clear" Text="Clear"/>
-            <Button x:Name="Delete" Text="Delete" Clicked="Finish_Clicked"/>
+            <Button x:Name="AddPlayer" Text="Add Player To Roster" Clicked="AddPlayer_Clicked"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
             <Button x:Name="Save" Text="Save" Clicked="Finish_Clicked"/>
+            <Button x:Name="Cancel" Text="Cancel" Clicked="Finish_Clicked"/>
         </HorizontalStackLayout>
     </VerticalStackLayout>
 </ContentPage>

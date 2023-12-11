@@ -4,6 +4,8 @@
              x:Class="Final.EditPlayer"
              Title="EditPlayer">
     <VerticalStackLayout Spacing="10">
+        <Label Text="Add New Player" FontSize="34"/>
+        <Label Text="Please enter in the following information then save"/>
         <HorizontalStackLayout Spacing="10">
             <Label Text="First: "/>
             <Entry x:Name="First" Placeholder=""/>
@@ -14,15 +16,32 @@
         </HorizontalStackLayout>
         <HorizontalStackLayout Spacing="10">
             <Label Text="Year: "/>
-            <Entry x:Name="Year" Placeholder=""/>
+            <Picker x:Name="Year">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Freshman</x:String>
+                        <x:String>Sophmore</x:String>
+                        <x:String>Junior</x:String>
+                        <x:String>Senior</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
         </HorizontalStackLayout>
         <HorizontalStackLayout Spacing="10">
             <Label Text="Position: "/>
-            <Entry x:Name="Position" Placeholder=""/>
+            <Picker x:Name="Position">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Handler</x:String>
+                        <x:String>Cutter</x:String>
+                        <x:String>Both</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
         </HorizontalStackLayout>
         <HorizontalStackLayout Spacing="10">
             <Button Text="Save" Clicked="Finish_Clicked"/>
-            <Button Text="Delete" Clicked="Finish_Clicked"/>
+            <Button Text="Cancel" Clicked="Finish_Clicked"/>
         </HorizontalStackLayout>
     </VerticalStackLayout>
 </ContentPage>

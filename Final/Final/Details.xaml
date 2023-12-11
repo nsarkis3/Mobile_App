@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Final.Details"
+             xmlns:drawables="clr-namespace:Final.Drawabels"
+             Title="Details">
+    <ContentPage.Resources>
+        <drawables:CatchesStat x:Key="CatchesStat"/>
+    </ContentPage.Resources>
+
+    <VerticalStackLayout Margin="10, 10, 10, 10" Spacing="10">
+        <Label Text="Top Preformers" FontSize="34"/>
+        <GraphicsView Drawable="{StaticResource CatchesStat}" x:Name="catches" WidthRequest="200" HeightRequest="300"
+            HorizontalOptions="Center" />
+        <Grid Margin="10" ColumnSpacing="10" HorizontalOptions="CenterAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <VerticalStackLayout>
+                <HorizontalStackLayout Grid.Row="0" Grid.Column="0" Spacing="5">
+                    <Label Text="1st"/>
+                    <BoxView Color="Gold" WidthRequest="20" HeightRequest="20" />
+                    <Label x:Name="first" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Grid.Row="0" Grid.Column="1" Spacing="5">
+                    <Label Text="2nd"/>
+                    <BoxView Color="Silver" WidthRequest="20" HeightRequest="20"/>
+                    <Label x:Name="second"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Grid.Row="0" Grid.Column="2" Spacing="5">
+                    <Label Text="3rd"/>
+                    <BoxView Color="Magenta" WidthRequest="20" HeightRequest="20"/>
+                    <Label x:Name="third"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Grid.Row="0" Grid.Column="3" Spacing="5">
+                    <Label Text="4th"/>
+                    <BoxView Color="Cyan" WidthRequest="20" HeightRequest="20"/>
+                    <Label x:Name="fourth"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Grid.Row="0" Grid.Column="4" Spacing="5">
+                    <Label Text="5th"/>
+                    <BoxView Color="Green" WidthRequest="20" HeightRequest="20"/>
+                    <Label x:Name="fifth"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </Grid>
+        <Button x:Name="Exit" Text="Exit" Clicked="Exit_Clicked" VerticalOptions="End"/>
+    </VerticalStackLayout>
+</ContentPage>

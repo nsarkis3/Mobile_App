@@ -11,5 +11,6 @@
     <ShellContent Title="EditPlayer" ContentTemplate="{DataTemplate local:EditPlayer}" Route="EditPlayer" />
     <ShellContent Title="Pull" ContentTemplate="{DataTemplate local:Pull}" Route="Pull" />
     <ShellContent Title="Stats" ContentTemplate="{DataTemplate local:Stats}" Route="Stats" />
+    <ShellContent Title="Details" ContentTemplate="{DataTemplate local:Details}" Route="Details" />
     
 </Shell>

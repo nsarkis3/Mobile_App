@@ -4,15 +4,27 @@
              x:Class="Final.Pull"
              Title="Pull">
     <VerticalStackLayout>
+        <Label Text="Ongoing Point:" FontSize="34"/>
+        <Label Text="Please tap players as they catch the disc if there is a turn click Thrown Away"/>
+        <Label Text="If your team turns the disc clicked Dropped or thrown away depending on what happened"/>
+
+        <HorizontalStackLayout Margin="0,15" Spacing="5">
+            <Label Text="Starting Possesion:"/>
+            <Label x:Name="Possesion" />
+        </HorizontalStackLayout>
+        
         <Label Text="Players:"/>
-        <Button x:Name="Player1" Text="Nic Sarkis"/>
-        <Button x:Name="Player2" Text="Alex Rintamaa"/>
-        <Button x:Name="Player3" Text="Carlo Vanni"/>
+        <Button x:Name="Player1" BackgroundColor="Blue" Clicked="Player_Clicked"/>
+        <Button x:Name="Player2" BackgroundColor="Blue" Clicked="Player_Clicked"/>
+        <Button x:Name="Player3" BackgroundColor="Blue" Clicked="Player_Clicked"/>
+        <Button x:Name="Player4" BackgroundColor="Blue" Clicked="Player_Clicked"/>
+        <Button x:Name="Player5" BackgroundColor="Blue" Clicked="Player_Clicked"/>
+        <Button x:Name="Player6" BackgroundColor="Blue" Clicked="Player_Clicked"/>
+        <Button x:Name="Player7" BackgroundColor="Blue" Clicked="Player_Clicked"/>
 
         <HorizontalStackLayout>
-            <Button x:Name="Turn" Text="Turn"/>
-            <Button x:Name="Score" Text="Score" Clicked="Score_Clicked"/>
+            <Button x:Name="ThrownAway" Text="Thrown Away" Clicked="CustomAction"/>
+            <Button x:Name="Score" Text="Score" Clicked="CustomAction"/>
         </HorizontalStackLayout>
-        <Button x:Name="Sub" Text="Sub"/>
     </VerticalStackLayout>
 </ContentPage>

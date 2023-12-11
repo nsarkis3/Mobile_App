@@ -2,13 +2,65 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Final.Stats"
+             xmlns:local="clr-namespace:Final;assembly=Final"
              Title="Stats">
     <VerticalStackLayout>
-        <Label Text="Current Stats:"/>
-        <HorizontalStackLayout>
-            <Label Text="Name: "/>    
-            <Label Text="Stats: "/>
-        </HorizontalStackLayout>
+        <Label Text="Statistics:" FontSize="34"/>
+        <ListView x:Name="lv">
+            <ListView.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Player" FontAttributes="Bold" WidthRequest="{Binding Source={x:Reference NameColumn}, Path=Width}"
+                           Grid.Row="0" Grid.Column="1"/>
+                    <Label Text="Catches" FontAttributes="Bold" WidthRequest="{Binding Source={x:Reference CatchesColumn}, Path=Width}"
+                           Grid.Row="0" Grid.Column="2"/>
+                    <Label Text="Passes" FontAttributes="Bold" WidthRequest="{Binding Source={x:Reference CompletionsColumn}, Path=Width}"
+                           Grid.Row="0" Grid.Column="3"/>
+                    <Label Text="Turns" FontAttributes="Bold" WidthRequest="{Binding Source={x:Reference ThrowAwaysColumn}, Path=Width}"
+                           Grid.Row="0" Grid.Column="4"/>
+                    <Label Text="Points" FontAttributes="Bold" WidthRequest="{Binding Source={x:Reference PointsColumn}, Path=Width}"
+                           Grid.Row="0" Grid.Column="5"/>
+                </Grid>
+            </ListView.Header>
+
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="local:Player">
+                    <ViewCell>
+                        <Grid RowSpacing="5" ColumnSpacing="5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" x:Name="IconColumn"/>
+                                <ColumnDefinition Width="2*" x:Name="NameColumn"/>
+                                <ColumnDefinition Width="*" x:Name="CatchesColumn"/>
+                                <ColumnDefinition Width="*" x:Name="CompletionsColumn"/>
+                                <ColumnDefinition Width="*" x:Name="ThrowAwaysColumn"/>
+                                <ColumnDefinition Width="*" x:Name="PointsColumn"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding Icon}"  Grid.Row="0" Grid.Column="0" HeightRequest="30" WidthRequest="30"/>
+                            <Label Text="{Binding Name}" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" VerticalOptions="Center"/>
+                            <Label Text="{Binding Catches}" Grid.Column="2" Grid.Row="0"/>
+                            <Label Text="{Binding Completions}" Grid.Column="3" Grid.Row="0"/>
+                            <Label Text="{Binding ThrowAways}" Grid.Column="4" Grid.Row="0"/>
+                            <Label Text="{Binding Points}" Grid.Column="5" Grid.Row="0"/>
+                        </Grid> 
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button x:Name="Top" Text="View Top 5" Clicked="Top_Clicked"/>
         <Button x:Name="Exit" Text="Exit" Clicked="Exit_Clicked"/>
     </VerticalStackLayout>
 </ContentPage>

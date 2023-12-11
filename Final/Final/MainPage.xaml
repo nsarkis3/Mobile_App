@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Final;assembly=Final"
              xmlns:viewModels="clr-namespace:Final.ViewModels;assembly=Final"
-             x:Class="Final.MainPage">
+             x:Class="Final.MainPage"
+             Title="Ultimate Stat Tracker">
     <Grid Margin="10,0,10,5" ColumnSpacing="5">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -21,15 +22,16 @@
         </Grid.ColumnDefinitions>
 
         <HorizontalStackLayout>
-            <Label Text="{Binding RemainingTime, StringFormat='Timer: {0:mm\\:ss}'}"
+            <Label Text="{Binding RemainingTime, StringFormat='Timer: {0:mm\\:ss}'}" FontSize="24" FontAttributes="Bold"
                    Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" HorizontalOptions="CenterAndExpand"/>
         </HorizontalStackLayout>
 
-        <Button Text="Start" Grid.Row="1" Grid.Column="0" Clicked="TimerEvent"/>
-        <Button Text="Half" Grid.Row="1" Grid.Column="1" Clicked="TimerEvent"/>
-        <Button Text="End" Grid.Row="1" Grid.Column="2" Clicked="TimerEvent"/>
+        <Button x:Name="Start" Text="Start" Grid.Row="1" Grid.Column="0" Clicked="TimerEvent"/>
+        <Button x:Name="Half" Text="Half" Grid.Row="1" Grid.Column="1" IsEnabled="False" Clicked="TimerEvent"/>
+        <Button x:Name="End" Text="End" Grid.Row="1" Grid.Column="2" IsEnabled="False" Clicked="TimerEvent"/>
 
-        <Label Text="Active Line: *" FontSize="24" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3"/>
+        <Label x:Name="name" Text="Active Line: " FontSize="24" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3"
+               FontAttributes="Bold"/>
 
         <ListView x:Name="lv" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3">
             <ListView.ItemTemplate>
@@ -43,22 +45,21 @@
                                 <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
-                            <Label Text="{Binding Position}" FontSize="18" Grid.Row="0" Grid.Column="0"/>
+                            <Image Source="{Binding Icon}"  Grid.Row="0" Grid.Column="0" HeightRequest="30" WidthRequest="30"/>
                             <Label Text="{Binding Name}" FontSize="18" Grid.Row="0" Grid.Column="1"/>
                         </Grid>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
-        <Button Text="Change" HorizontalOptions="Start" Grid.Row="4" Grid.Column="0"/>
-        <Button x:Name="Pull" Text="Pull" HorizontalOptions="End" Clicked="Pull_Clicked"
-                    Grid.Row="4" Grid.Column="2"/>
-
-        <Button x:Name="SetUp" Text="Set up lines" Clicked="SetUp_Clicked" HorizontalOptions="Center"
-                    Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3"/>
+        <HorizontalStackLayout Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" HorizontalOptions="Center">
+            <Button x:Name="Select" Text="Set Line" Clicked="SetUp_Clicked"/>
+            <Button x:Name="Wipe" Text="Wipe Team" Clicked="Wipe_Clicked"/>
+        </HorizontalStackLayout>
+        <Button x:Name="Pull" Text="Pull" HorizontalOptions="Center" Clicked="Pull_Clicked"
+            Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3"/>
         <Button x:Name="Stats" Text="View Stats" Clicked="Stats_Clicked" HorizontalOptions="Center"
-                    Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3"/>
+            Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3"/>
     </Grid>
 
 </ContentPage>
